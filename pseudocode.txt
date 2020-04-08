@@ -1,5 +1,5 @@
-Link jQuery, reset css, Bootstrap, style css, Firebase, javascript file, and moment.js in html.
-Layout with html and Bootstrap: Jumbotron, Current Train Schedule table, Add Train Form.
+DONE - Link jQuery, reset css, Bootstrap, style css, Firebase, javascript file, and moment.js in html.
+DONE - Layout with html and Bootstrap: Jumbotron, Current Train Schedule table, Add Train Form.
 Create var config for firebase config key.
 Initialize app with Firebase and create var database.
 Create empty vars for train name, destination, first train time, frequency, next arrival and minutes away.
