@@ -1,0 +1,19 @@
+Link jQuery, reset css, Bootstrap, style css, Firebase, javascript file, and moment.js in html.
+Layout with html and Bootstrap: Jumbotron, Current Train Schedule table, Add Train Form.
+Create var config for firebase config key.
+Initialize app with Firebase and create var database.
+Create empty vars for train name, destination, first train time, frequency, next arrival and minutes away.
+Create onclick function for submit button:
+    -Prevent default
+    -Assign form input values to vars
+    -Database ref push input
+Database ref on child added, child snapshot:
+    -Console log all values
+    -Create variables for row and table data cells
+    -Add text for input values to td cells
+    -Create functions to calculate next arrival and minutes away using moment.js
+    -Add values for next arrival and minutes away to appropriate td cells
+    -Append td cells to row
+    -Append row to table
+    -Error Function
+Remaining css
