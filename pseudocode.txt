@@ -8,12 +8,12 @@ DONE - Create onclick function for submit button:
     DONE -Assign form input values to vars
     DONE -Database ref push input
 Database ref on child added, child snapshot:
-    -Console log all values
-    -Create variables for row and table data cells
-    -Add text for input values to td cells
+    DONE -Console log all values
+    DONE -Create variables for row and table data cells
+    DONE -Add text for input values to td cells
     -Create functions to calculate next arrival and minutes away using moment.js
     -Add values for next arrival and minutes away to appropriate td cells
-    -Append td cells to row
-    -Append row to table
-    -Error Function
+    DONE -Append td cells to row
+    DONE -Append row to table
+    DONE -Error Function
 Remaining css
