@@ -1,0 +1,10 @@
+body {
+    background-color: powderblue;
+}
+
+.jumbotron-fluid {
+    text-align: center;
+    background-color: blueviolet;
+    color: white;
+}
+
