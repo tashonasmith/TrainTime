@@ -3,10 +3,10 @@ DONE - Layout with html and Bootstrap: Jumbotron, Current Train Schedule table, 
 DONE - Create var config for firebase config key.
 DONE - Initialize app with Firebase and create var database.
 DONE - Create empty vars for train name, destination, first train time, frequency, next arrival and minutes away.
-Create onclick function for submit button:
-    -Prevent default
-    -Assign form input values to vars
-    -Database ref push input
+DONE - Create onclick function for submit button:
+    DONE -Prevent default
+    DONE -Assign form input values to vars
+    DONE -Database ref push input
 Database ref on child added, child snapshot:
     -Console log all values
     -Create variables for row and table data cells

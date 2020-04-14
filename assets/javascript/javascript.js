@@ -16,4 +16,23 @@ var frequency = "";
 var nextArrival = "";
 var minAway = "";
 
+$("#submit").on("click", function(event){
+    event.preventDefault();
+
+    name = $("#name-input").val().trim();
+    dest = $("#destination-input").val().trim();
+    firstTrain = $("#first-train-input").val();
+    frequency = $("#frequency-input").val();
+
+    console.log(name);
+
+    database.ref().push({
+        name: name,
+        destination: dest,
+        firstTrainTime: firstTrain,
+        frequency: frequency
+      });
+
+});
+
   
