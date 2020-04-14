@@ -19,7 +19,6 @@ var minAway = "";
 
 $("#submit").on("click", function(event){
     event.preventDefault();
-    //$(".form-control").val("");
 
     name = $("#name-input").val().trim();
     dest = $("#destination-input").val().trim();
@@ -28,48 +27,17 @@ $("#submit").on("click", function(event){
 
     console.log(name);
 
+
     database.ref().push({
         name: name,
         dest: dest,
         firstTrain: firstTrain,
-        frequency: frequency
+        frequency: frequency,
       });
-
-
-      /*database.ref().on("child_added", function(childSnapshot){
-        console.log(childSnapshot.val().name);
-        console.log(childSnapshot.val().dest);
-        console.log(childSnapshot.val().firstTrain);
-        console.log(childSnapshot.val().frequency);
-    
-       /*var startDate = Date.parse(childSnapshot.val().date);
-       console.log(startDate);*/
-    
-        /*var row = $("<tr>");
-    
-        var tdname = $("<td>");
-        tdname.text(childSnapshot.val().name);
-    
-        var tddest = $("<td>");
-        tddest.text(childSnapshot.val().dest);
-    
-        var tdfrequency = $("<td>");
-        tdfrequency.text(childSnapshot.val().frequency);
-    
-        var tdnextArrival = $("<td>");
-    
-        var tdminutes = $("<td>");
-        //tdrate.text(childSnapshot.val().frequency);
-    
-        row.append(tdname, tddest, tdfrequency, tdnextArrival, tdminutes);
-        $(".table").append(row);
-    
-    }, function(errorObject) {
-        console.log("The read failed: " + errorObject.code);
-    }); */ 
 
     $(".form-control").val(""); 
 });
+
 
 database.ref().on("child_added", function(childSnapshot){
     console.log(childSnapshot.val().name);
@@ -77,8 +45,30 @@ database.ref().on("child_added", function(childSnapshot){
     console.log(childSnapshot.val().firstTrain);
     console.log(childSnapshot.val().frequency);
 
-   /*var startDate = Date.parse(childSnapshot.val().date);
-   console.log(startDate);*/
+    name = childSnapshot.val().name;
+    dest = childSnapshot.val().dest;
+    firstTrain = childSnapshot.val().firstTrain;
+    frequency = childSnapshot.val().frequency;
+
+
+    var firstTrainMoment = moment(firstTrain, "HH:mm");
+    console.log("TIME CONVERTED: " + firstTrainMoment);
+    
+    var currentTime = moment()
+    console.log("Now TIME: " + currentTime);
+
+    var minuteArrival = currentTime.diff(firstTrainMoment, 'minutes');
+    var minuteLast = minuteArrival % frequency;
+    var awayTrain = frequency - minuteLast;
+
+    console.log("Minutes: " + minuteArrival);
+    console.log("Minutes Last: " + minuteLast);
+    console.log("Away Train: " + awayTrain);
+
+    var nextArrival = currentTime.add(awayTrain, 'minutes');
+    var arrivalTime = nextArrival.format("HH:mm");
+    console.log("Away Arrival: " + nextArrival);
+    console.log("Arrival Time: " + arrivalTime);
 
     var row = $("<tr>");
 
@@ -92,11 +82,12 @@ database.ref().on("child_added", function(childSnapshot){
     tdfrequency.text(childSnapshot.val().frequency);
 
     var tdnextArrival = $("<td>");
+    tdnextArrival.html(arrivalTime);
 
-    var tdminutes = $("<td>");
-    //tdrate.text(childSnapshot.val().frequency);
+    var tdMinutes = $("<td>");
+    tdMinutes.html(awayTrain);
 
-    row.append(tdname, tddest, tdfrequency, tdnextArrival, tdminutes);
+    row.append(tdname, tddest, tdfrequency, tdnextArrival, tdMinutes);
     $(".table").append(row);
 
 }, function(errorObject) {

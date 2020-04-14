@@ -11,8 +11,8 @@ Database ref on child added, child snapshot:
     DONE -Console log all values
     DONE -Create variables for row and table data cells
     DONE -Add text for input values to td cells
-    -Create functions to calculate next arrival and minutes away using moment.js
-    -Add values for next arrival and minutes away to appropriate td cells
+    DONE -Create functions to calculate next arrival and minutes away using moment.js
+    DONE -Add values for next arrival and minutes away to appropriate td cells
     DONE -Append td cells to row
     DONE -Append row to table
     DONE -Error Function
